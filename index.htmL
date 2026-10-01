@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phitang AI - Nơi lưu giữ kỹ niệm</title>
+
+<title>Phitang AI - Góc lưu niệm</title>
 
 <style>
 body {
@@ -15,7 +16,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 40px 20px;
 }
@@ -32,22 +33,16 @@ h1 {
   margin-bottom: 30px;
 }
 
-.card {
+.welcome {
   background: white;
   border-radius: 24px;
-  padding: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
 
-.card img {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 18px;
-}
-
-.welcome {
-  font-size: 24px;
-  margin: 25px 0 10px;
+.welcome h2 {
+  color: #7b3fc6;
 }
 
 .text {
@@ -56,10 +51,52 @@ h1 {
   line-height: 1.6;
 }
 
+/* Hai khung hình */
+.album {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+
+.card h2 {
+  color: #7b3fc6;
+  margin: 18px 0 8px;
+}
+
+.card p {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
 .footer {
   margin-top: 35px;
   color: #888;
   font-size: 15px;
+}
+
+/* Điện thoại */
+@media (max-width: 700px) {
+  .album {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
 }
 </style>
 </head>
@@ -68,30 +105,54 @@ h1 {
 
 <div class="container">
 
-  <h1>✨ Phitang AI- Góc lưu niệm ✨</h1>
+  <h1>✨ Phitang AI - Góc lưu niệm ✨</h1>
 
   <div class="subtitle">
     Góc nhỏ lưu giữ hình ảnh, kỷ niệm và những điều thân yêu
   </div>
 
-  <div class="card">
-
-    <img src="Bieu-Tuong-Chuc-Mung-Nam-Moi.jpg" alt="Hình ảnh Phitang AI">
-
-    <div class="welcome">
-      Chào mừng đến với Phitang AI-nơi lưu giữ kỷ niệm
-    </div>
+  <div class="welcome">
+    <h2>🌷 Chào mừng đến với Phitang AI 🌷</h2>
 
     <div class="text">
       Nơi lưu giữ những hình ảnh đẹp,<br>
       những tấm thiệp thân yêu<br>
       và những kỷ niệm đáng nhớ.
     </div>
-<img src="happy-birthday-cake-3.gift.jpg"  alt="Thiệp sinh nhật">
+  </div>
+
+  <div class="album">
+
+    <!-- Hình năm mới -->
+    <div class="card">
+      <img src="Bieu-Tuong-Chuc-Mung-Nam-Moi.jpg"
+           alt="Chúc mừng năm mới">
+
+      <h2>🌸 Chúc mừng năm mới</h2>
+
+      <p>
+        Chúc một năm mới an vui, hạnh phúc,
+        nhiều sức khỏe và nhiều điều tốt đẹp.
+      </p>
+    </div>
+
+    <!-- Hình sinh nhật -->
+    <div class="card">
+      <img src="happy-birthday-cake-3.gift.jpg"
+           alt="Thiệp sinh nhật">
+
+      <h2>🎂 Sinh nhật</h2>
+
+      <p>
+        Lưu giữ những khoảnh khắc sinh nhật
+        vui vẻ, ấm áp và đáng nhớ.
+      </p>
+    </div>
+
   </div>
 
   <div class="footer">
-    © 2026 Phitang AI
+    © 2026 Phitang AI - Góc lưu niệm 💜
   </div>
 
 </div>
