@@ -72,11 +72,13 @@ h1 {
   border-radius: 18px;
   display: block;
  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30); 
+  
  } 
   
 }
 
 .card h2 {
+  
   color: #7b3fc6;
   margin: 18px 0 8px;
 }
@@ -173,7 +175,35 @@ h1 {
   </div>
 
 </div>
+<script>
+document.querySelectorAll("#photoGallery img").forEach(img => {
+  img.style.cursor = "pointer";
 
+  img.addEventListener("click", function() {
+    const overlay = document.createElement("div");
+
+    overlay.style.cssText = `
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+    `;
+
+    overlay.innerHTML = `
+      <span style="position:absolute;top:20px;right:30px;
+      color:white;font-size:40px;cursor:pointer;">&times;</span>
+      <img src="${this.src}" style="max-width:90%;max-height:85%;
+      object-fit:contain;">
+    `;
+
+    document.body.appendChild(overlay);
+    overlay.addEventListener("click", () => overlay.remove());
+  });
+});
+</script>
 </body>
 </html>
 
