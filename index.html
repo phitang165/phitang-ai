@@ -228,6 +228,27 @@ photos.forEach((photo, index) => {
     overlay.onclick = (event) => {
       if (event.target === overlay) overlay.remove();
     };
+  document.onkeydown = (event) => {
+  if (!document.body.contains(overlay)) {
+    document.onkeydown = null;
+    return;
+  }
+
+  if (event.key === "ArrowLeft") {
+    current = (current - 1 + photos.length) % photos.length;
+    showPhoto();
+  }
+
+  if (event.key === "ArrowRight") {
+    current = (current + 1) % photos.length;
+    showPhoto();
+  }
+
+  if (event.key === "Escape") {
+    overlay.remove();
+    document.onkeydown = null;
+  }
+};
   });
 });
 </script>
