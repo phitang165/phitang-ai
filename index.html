@@ -226,7 +226,12 @@ photos.forEach((photo, index) => {
     overlay.querySelector("#closePhoto").onclick = () => overlay.remove();
 
     overlay.onclick = (event) => {
-      if (event.target === overlay) overlay.remove();
+  if (event.target === overlay) {
+    clearInterval(slideTimer);
+    slideTimer = null;
+    overlay.remove();
+  }
+};
     };
   document.onkeydown = (event) => {
   if (!document.body.contains(overlay)) {
