@@ -5,7 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Phitang AI - Góc lưu niệm của tôi</title>
+#landscapeGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+}
 
+#landscapeGallery img {
+    width: 100%;
+    max-width: 420px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 <style>
 #photoGallery img{width:180px; height:110px; object-fit:cover; margin:10px 0; border-radius:10px; flex:0 0 180px;}
 #photoGallery {display:flex; flex-wrap:nowrap; justify-content:flex-start; gap:10px; overflow-x:auto; padding:8px 4px;}
@@ -167,7 +182,13 @@ h1 {
 <img src="IMG_0453.JPEG" alt="Ảnh kỷ niệm 3">
 <img src="IMG_1497.JPEG" alt="Ảnh kỷ niệm 4">
 
+<!-- Album phong cảnh Việt Nam -->
+<h2>🌄 Phong cảnh Việt Nam</h2>
 
+<div id="landscapeGallery">
+    <img src="Phong canh _01.png" alt="Phong cảnh Việt Nam 1">
+    <img src="Phong canh _02.png" alt="Phong cảnh Việt Nam 2">
+</div>
   <div class="footer">
     © 2026 Phitang AI - Góc lưu niệm 💜
   </div>
