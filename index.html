@@ -177,10 +177,18 @@ h1 {
     oninput="
       document.getElementById('backgroundMusic').volume=this.value/100;
       document.getElementById('volumeValue').textContent=this.value+'%';
+    localStorage.setItem('musicVolume', this.value);
     ">
 </div>
 <script>
-document.getElementById('backgroundMusic').volume = 0.5;
+let savedVolume = localStorage.getItem('musicVolume');
+if (savedVolume !== null) {
+  document.getElementById('backgroundMusic').volume = savedVolume / 100;
+  document.getElementById('musicVolume').value = savedVolume;
+  document.getElementById('volumeValue').textContent = savedVolume + '%';
+} else {
+  document.getElementById('backgroundMusic').volume = 0.5;
+}
 </script>          
 
 <p id="musicStatus" style="color:#7b3fc6; font-weight:bold;">
