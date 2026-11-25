@@ -167,7 +167,23 @@ h1 {
   <audio id="backgroundMusic" loop>
     <source src="leberch-peaceful-piano-576857.mp3" type="audio/mpeg">
   </audio>
-  <p id="musicStatus" style="color:#7b3fc6; font-weight:bold;">
+ <div style="margin:10px auto;">
+  <label>🔊 Âm lượng:
+    <span id="volumeValue">50%</span>
+  </label>
+  <br>
+  <input id="musicVolume" type="range"
+    min="0" max="100" value="50"
+    oninput="
+      document.getElementById('backgroundMusic').volume=this.value/100;
+      document.getElementById('volumeValue').textContent=this.value+'%';
+    ">
+</div>
+<script>
+document.getElementById('backgroundMusic').volume = 0.5;
+</script>          
+
+<p id="musicStatus" style="color:#7b3fc6; font-weight:bold;">
   🎵 Nhạc đang tắt
 </p>        
  <button onclick="document.getElementById('backgroundMusic').play(); document.getElementById('musicStatus').textContent='🎵 Đang phát nhạc';">
