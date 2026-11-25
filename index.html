@@ -167,10 +167,13 @@ h1 {
   <audio id="backgroundMusic" loop>
     <source src="leberch-peaceful-piano-576857.mp3" type="audio/mpeg">
   </audio>
-  <button onclick="document.getElementById('backgroundMusic').play()">
+  <p id="musicStatus" style="color:#7b3fc6; font-weight:bold;">
+  🎵 Nhạc đang tắt
+</p>        
+ <button onclick="document.getElementById('backgroundMusic').play(); document.getElementById('musicStatus').textContent='🎵 Đang phát nhạc';">
     🎵 Bật nhạc
   </button>
-  <button onclick="document.getElementById('backgroundMusic').pause()">
+ <button onclick="document.getElementById('backgroundMusic').pause(); document.getElementById('musicStatus').textContent='⏸ Nhạc đã tạm dừng';">
     ⏸ Tắt nhạc
   </button>
 </div>
