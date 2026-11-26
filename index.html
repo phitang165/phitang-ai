@@ -194,7 +194,7 @@ if (savedVolume !== null) {
 <p id="musicStatus" style="color:#7b3fc6; font-weight:bold;">
   🎵 Nhạc đang tắt
 </p>        
- <button onclick="document.getElementById('backgroundMusic').play(); document.getElementById('musicStatus').textContent='🎵 Đang phát nhạc';">
+ <button onclick="playMusicFadeIn()">
     🎵 Bật nhạc
   </button>
  <button onclick="document.getElementById('backgroundMusic').pause(); document.getElementById('musicStatus').textContent='⏸ Nhạc đã tạm dừng';">
@@ -367,6 +367,28 @@ overlay.querySelector("#pauseShow").onclick = () => {
 };
   });
 });
+let fadeTimer;
+
+function playMusicFadeIn() {
+    const music = document.getElementById('backgroundMusic');
+    const target = Number(document.getElementById('musicVolume').value) / 100;
+
+    clearInterval(fadeTimer);
+    music.volume = 0;
+    music.play();
+
+    let volume = 0;
+    fadeTimer = setInterval(function() {
+        volume += 0.05;
+        if (volume >= target) {
+            volume = target;
+            clearInterval(fadeTimer);
+        }
+        music.volume = volume;
+    }, 150);
+
+    document.getElementById('musicStatus').textContent = '🎵 Đang phát nhạc';
+}
 </script>
 
 </body>
