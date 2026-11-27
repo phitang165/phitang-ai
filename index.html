@@ -157,6 +157,7 @@ h1 {
 
   <div class="welcome">
     <h2>🌷 Chào mừng đến với Phitang AI 🌷</h2>
+    <p id="timeGreeting" style="color:#7b3fc6; font-weight:bold;"></p>
 
     <div class="text">
       Nơi lưu giữ những hình ảnh đẹp,<br>
@@ -389,6 +390,22 @@ function playMusicFadeIn() {
 
     document.getElementById('musicStatus').textContent = '🎵 Đang phát nhạc';
 }
+function updateTimeGreeting() {
+    const hour = new Date().getHours();
+    let greeting = "";
+
+    if (hour < 12) {
+        greeting = "🌞 Chúc Phi Tang một buổi sáng an lành!";
+    } else if (hour < 18) {
+        greeting = "🌷 Chúc Phi Tang một buổi chiều vui vẻ!";
+    } else {
+        greeting = "🌙 Chúc Phi Tang một buổi tối bình an!";
+    }
+
+    document.getElementById("timeGreeting").textContent = greeting;
+}
+
+updateTimeGreeting();
 </script>
 
 </body>
