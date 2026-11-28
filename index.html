@@ -158,6 +158,7 @@ h1 {
   <div class="welcome">
     <h2>🌷 Chào mừng đến với Phitang AI 🌷</h2>
     <p id="timeGreeting" style="color:#7b3fc6; font-weight:bold;"></p>
+      <p id="liveClock" style="color:#7b3fc6; font-size:14px; font-weight:bold;"></p>
 
     <div class="text">
       Nơi lưu giữ những hình ảnh đẹp,<br>
@@ -406,6 +407,18 @@ function updateTimeGreeting() {
 }
 
 updateTimeGreeting();
+function updateLiveClock() {
+    const now = new Date();
+
+    const date = now.toLocaleDateString('vi-VN');
+    const time = now.toLocaleTimeString('vi-VN');
+
+    document.getElementById('liveClock').textContent =
+        '📅 ' + date + '  🕒 ' + time;
+}
+
+updateLiveClock();
+setInterval(updateLiveClock, 1000);
 </script>
 
 </body>
