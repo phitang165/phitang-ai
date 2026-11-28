@@ -167,7 +167,14 @@ h1 {
     <button onclick="changeMonth(1)">▶</button>
 </div>
 <div id="calendarDays"></div>
-</div>        
+</div>   
+<div id="memoryNotes" style="max-width:320px; margin:12px auto; padding:12px; background:#fff; border-radius:12px; color:#7b3fc6; text-align:center;">
+    <h3>🌷 Nhật ký kỷ niệm</h3>
+    <p id="selectedDate">Chọn một ngày trên lịch</p>
+    <textarea id="memoryText" placeholder="Viết kỷ niệm của Phi Tang..." style="width:90%; height:65px;"></textarea>
+    <br>
+    <button onclick="saveMemory()">💜 Lưu kỷ niệm</button>
+</div>      
     <div class="text">
       Nơi lưu giữ những hình ảnh đẹp,<br>
       những tấm thiệp thân yêu<br>
@@ -465,9 +472,9 @@ function renderCalendar() {
             month === today.getMonth() &&
             year === today.getFullYear();
 
-        html += '<div style="padding:7px 0;border-radius:8px;' +
-            (isToday ? 'background:#7b3fc6;color:white;font-weight:bold;' : '') +
-            '">' + day + '</div>';
+html += '<div onclick="selectMemoryDate(' + year + ',' + month + ',' + day + ')" style="padding:7px 0;border-radius:8px;cursor:pointer;' +
+    (isToday ? 'background:#7b3fc6;color:white;font-weight:bold;' : '') +
+    '">' + day + '</div>';       
     }
 
     html += '</div>';
@@ -481,6 +488,37 @@ function changeMonth(step) {
 
 renderCalendar();
 
+function selectMemoryDate(year, month, day) {
+    const dateKey = year + "-" +
+        String(month + 1).padStart(2, "0") + "-" +
+        String(day).padStart(2, "0");
+
+    document.getElementById("selectedDate").textContent =
+        "📅 Kỷ niệm ngày " + day + "/" + (month + 1) + "/" + year;
+
+    document.getElementById("memoryText").value =
+        localStorage.getItem("memory-" + dateKey) || "";
+
+    document.getElementById("memoryText").dataset.date = dateKey;
+}
+
+function saveMemory() {
+    const dateKey = document.getElementById("memoryText").dataset.date;
+    const content = document.getElementById("memoryText").value.trim();
+
+    if (!dateKey) {
+        alert("Phi Tang hãy chọn một ngày trên lịch trước nhé!");
+        return;
+    }
+
+    if (content) {
+        localStorage.setItem("memory-" + dateKey, content);
+    } else {
+        localStorage.removeItem("memory-" + dateKey);
+    }
+
+    alert("💜 Đã lưu kỷ niệm trên máy tính!");
+}
 </script>
 
 </body>
